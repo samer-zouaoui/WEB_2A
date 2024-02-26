@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accueil</title>
+    <style>
+      /* Ajoutez ici le CSS pour personnaliser le style de la page */
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      header {
+        background-color: #f2f2f2;
+        padding: 20px;
+        text-align: center;
+      }
+
+      nav div {
+        margin-bottom: 10px;
+      }
+
+      nav a {
+        margin-right: 10px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+
+      section {
+        text-align: center;
+        margin: 20px;
+      }
+
+      table {
+        margin: 0 auto;
+        width: 80%;
+      }
+
+      th, td {
+        padding: 10px;
+        text-align: center;
+      }
+
+      footer {
+        background-color: #f2f2f2;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+      }
+    </style>
+    <script>
+// Fonction de validation du formulaire d'inscription
+function validateForm() {
+  // Récupérer les valeurs des champs du formulaire
+  const nom = document.getElementById("nom").value;
+  const prenom = document.getElementById("prenom").value;
+  const email = document.getElementById("email").value;
+  const telephone = document.getElementById("telephone").value;
+  const dateNaissance = document.getElementById("dateNaissance").value;
+  const motDePasse = document.getElementById("motDePasse").value;
+  
+  // Expression régulière pour les lettres alphabétiques
+  const regexLettres = /^[A-Za-z]+$/;
+  
+  // Expression régulière pour le format de l'email
+  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  // Expression régulière pour les chiffres
+  const regexChiffres = /^[0-9]+$/;
+  
+  // Variable pour stocker les messages d'erreur
+  let errorMessage = "";
+  
+  // Validation du champ "Nom"
+  if (nom.trim() === "" || !regexLettres.test(nom) || nom.length < 2) {
+    errorMessage += "Veuillez entrer un nom valide (lettres uniquement).\n";
+  }
+  
+  // Validation du champ "Prénom"
+  if (prenom.trim() === "" || !regexLettres.test(prenom) || prenom.length < 2) {
+    errorMessage += "Veuillez entrer un prénom valide (lettres uniquement).\n";
+  }
+  
+  // Validation du champ "Email"
+  if (email.trim() === "" || !regexEmail.test(email)) {
+    errorMessage += "Veuillez entrer un email valide.\n";
+  }
+  
+  // Validation du champ "Téléphone"
+  if (telephone.trim() === "" || !regexChiffres.test(telephone) || telephone.length !== 8) {
+    errorMessage += "Veuillez entrer un numéro de téléphone valide (8 chiffres).\n";
+  }
+  
+  // Validation du champ "Date de naissance"
+  if (dateNaissance.trim() === "") {
+    errorMessage += "Veuillez entrer une date de naissance.\n";
+  }
+  
+  // Validation du champ "Mot de passe"
+  if (motDePasse.trim() === "" || motDePasse.length < 8 || !/[A-Z]/.test(motDePasse) || !/[a-z]/.test(motDePasse) || !/[0-9]/.test(motDePasse)) {
+    errorMessage += "Veuillez entrer un mot de passe valide (au moins 8 caractères, incluant au moins un chiffre, une lettre minuscule et une lettre majuscule).\n";
+  }
+  
+  // Vérifier s'il y a des erreurs
+  if (errorMessage !== "") {
+    alert(errorMessage);
+    return false; // Empêche l'envoi du formulaire en cas d'erreurs
+  }
+  
+  return true; // Permet l'envoi du formulaire si la validation est réussie
+}
+      
+    </script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <br />
+      <nav>
+        <div>
+          <a href="accueil.html">Home</a>
+          <a href="projets_taches.html">Projets et tâches</a>
+          <a href="liste_employes.html">Liste employés</a>
+          <a href="inscription.html">Inscription</a>
+        </div>
+      </nav>
+      <br />
+      <hr />
+      <br />
+      <img
+        src="img1.jpg"
+        width="100%"
+        height="500"
+        alt="Image d'accueil"
+      />
+    </header>
+
+    <!-- Contenu de la page -->
+    <section>
+      <h1>Bienvenue sur notre site !</h1>
+      <p>
+        Nous proposons une gestion des tâches et projets dans votre entreprise
+      </p>
+      <h2>Nos Valeurs </h2>
+      <table>
+        <tr>
+          <th>
+            <img src="img2.jpg" alt="val" width="60%" height="30%" />
+          </th>
+          <th>
+            <img src="img3.jpg" alt="val" width="60%" height="60%" />
+          </th>
+          <th>
+            <img src="img4.jpg" alt="val" width="60%" height="30%" />
+          </th>
+        </tr>
+        <tr>
+          <td>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          </td>
+          <td>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          </td>
+          <td>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Footer -->
+    <br />
+    <hr />
+    <footer>
+      <p>
+        Vous pouvez nous contacter par email :
+        <a href="mailto:contact@esprit.tn">contact@esprit.tn</a>
+      </p>
+      <p>Adresse : Ghazela, Tunis</p>
+    </footer>
+    <script>
+     
+    </script>
+  </body>
+</html>
